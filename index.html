@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f4ed" />
+    <title>Habit Tracker</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+        <div class="sidebar-top">
+          <a class="brand" href="#" data-tab-target="home" aria-label="Foco e Constância">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M12 21c0-8 0-13 8-18 0 7-2 11-8 14" />
+              <path d="M12 21c0-7 0-11-8-15 0 6 2 10 8 13" />
+              <path d="M12 21V9" />
+            </svg>
+          </span>
+            <span class="brand-text">Foco &<br />Constância</span>
+          </a>
+          <button class="icon-button sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Recolher menu" aria-expanded="true">
+            <span class="icon" data-icon="sidebar"></span>
+          </button>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" type="button" data-tab-target="home">
+            <span class="icon" data-icon="home"></span>
+            <span>Hoje</span>
+          </button>
+          <button class="nav-item" type="button" data-tab-target="habits">
+            <span class="icon" data-icon="target"></span>
+            <span>Hábitos</span>
+          </button>
+          <button class="nav-item" type="button" data-tab-target="stats">
+            <span class="icon" data-icon="chart"></span>
+            <span>Estatísticas</span>
+          </button>
+          <button class="nav-item" type="button" data-tab-target="calendar">
+            <span class="icon" data-icon="calendar"></span>
+            <span>Calendário</span>
+          </button>
+        </nav>
+
+        <div class="quote-card">
+          <svg class="sprout" viewBox="0 0 80 96" aria-hidden="true">
+            <path d="M40 88V20" />
+            <path d="M40 41C23 38 15 27 14 12c17 2 25 12 26 29Z" />
+            <path d="M41 60c19-3 27-15 28-31-17 3-27 15-28 31Z" />
+            <path d="M40 76c-14-1-22-9-25-22 14 1 22 9 25 22Z" />
+          </svg>
+          <p>Pequenas ações feitas todos os dias levam a grandes mudanças.</p>
+        </div>
+      </aside>
+
+      <main class="main-content" id="top">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Habit Tracker</p>
+            <h1 id="greeting">Bom dia ☀️ Vamos começar com intenção.</h1>
+            <p id="today-label" class="today-label"></p>
+          </div>
+          <button class="primary-button" id="open-form" type="button">
+            <span class="icon" data-icon="plus"></span>
+            Novo hábito
+          </button>
+        </header>
+
+        <section class="tab-panel active" id="tab-home" data-tab-panel="home">
+          <div class="metric-grid" aria-label="Resumo de hábitos">
+            <article class="metric-card metric-green">
+              <span class="metric-icon" data-icon="check-circle"></span>
+              <strong id="metric-done">0</strong>
+              <span>Hábitos concluídos esta semana</span>
+            </article>
+            <article class="metric-card metric-amber">
+              <span class="metric-icon" data-icon="flame"></span>
+              <strong id="metric-streak">0</strong>
+              <span>Maior sequência de dias</span>
+            </article>
+            <article class="metric-card metric-blue">
+              <span class="metric-icon" data-icon="trend"></span>
+              <strong id="metric-rate">0%</strong>
+              <span>Taxa média de conclusão</span>
+            </article>
+            <article class="metric-card metric-purple">
+              <span class="metric-icon" data-icon="star"></span>
+              <strong id="metric-active">0</strong>
+              <span>Hábitos ativos</span>
+            </article>
+          </div>
+          <section class="empty-panel" id="home-empty">
+            <span class="empty-icon" data-icon="target"></span>
+            <h2>Comece com seu primeiro hábito</h2>
+            <p>Crie uma meta diária e marque seu progresso no calendário semanal.</p>
+          </section>
+          <section class="home-habits" id="home-habits" aria-label="Hábitos de hoje"></section>
+        </section>
+
+        <section class="tab-panel" id="tab-habits" data-tab-panel="habits">
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>Hábitos</h2>
+              <button class="ghost-button compact-action" id="open-form-habits" type="button">
+                <span class="icon" data-icon="plus"></span>
+                Novo
+              </button>
+            </div>
+            <div class="habit-list" id="habit-list"></div>
+          </section>
+        </section>
+
+        <section class="tab-panel" id="tab-stats" data-tab-panel="stats">
+          <div class="metric-grid metric-grid-inline" aria-label="Resumo estatístico">
+            <article class="metric-card metric-green">
+              <span class="metric-icon" data-icon="check-circle"></span>
+              <strong id="metric-done-stats">0</strong>
+              <span>Concluídos esta semana</span>
+            </article>
+            <article class="metric-card metric-amber">
+              <span class="metric-icon" data-icon="flame"></span>
+              <strong id="metric-streak-stats">0</strong>
+              <span>Maior sequência</span>
+            </article>
+            <article class="metric-card metric-blue">
+              <span class="metric-icon" data-icon="trend"></span>
+              <strong id="metric-rate-stats">0%</strong>
+              <span>Conclusão média</span>
+            </article>
+          </div>
+          <section class="habit-detail" id="stats" aria-live="polite"></section>
+        </section>
+
+        <section class="tab-panel" id="tab-calendar" data-tab-panel="calendar">
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>Calendário</h2>
+              <div class="week-switcher" aria-label="Semana exibida">
+                <button type="button" id="prev-week" aria-label="Semana anterior">
+                  <span class="icon" data-icon="chevron-left"></span>
+                </button>
+                <span id="week-label">Esta semana</span>
+                <button type="button" id="next-week" aria-label="Próxima semana">
+                  <span class="icon" data-icon="chevron-right"></span>
+                </button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="habit-table">
+                <thead>
+                  <tr id="table-head"></tr>
+                </thead>
+                <tbody id="habit-rows"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="habit-dialog" id="habit-dialog">
+      <form class="habit-form" id="habit-form" method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">Meta diária</p>
+            <h2 id="form-title">Novo hábito</h2>
+          </div>
+          <button class="icon-button" id="close-form" type="button" aria-label="Fechar">
+            <span class="icon" data-icon="x"></span>
+          </button>
+        </div>
+
+        <input id="habit-id" type="hidden" />
+
+        <label>
+          Nome
+          <input id="habit-name" name="name" type="text" maxlength="32" required placeholder="Ex.: Programar" />
+        </label>
+
+        <label>
+          Categoria
+          <input id="habit-category" name="category" type="text" maxlength="28" required placeholder="Ex.: Desenvolvimento pessoal" />
+        </label>
+
+        <label>
+          Cor
+          <select id="habit-color" name="color">
+            <option value="green">Verde</option>
+            <option value="blue">Azul</option>
+            <option value="purple">Roxo</option>
+            <option value="amber">Âmbar</option>
+            <option value="rose">Rosa</option>
+          </select>
+        </label>
+
+        <div class="form-actions">
+          <button class="ghost-button" id="delete-habit" type="button">Excluir</button>
+          <button class="primary-button" type="submit">Salvar hábito</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
