@@ -283,9 +283,7 @@ Algumas funcionalidades que podem ser adicionadas futuramente:
 
 O Habit Tracker está disponível online e pode ser utilizado diretamente pelo navegador.
 
-🔗 Links
-🌐 Aplicação: https://habit-tracker-kappa-sooty.vercel.app/
-💻 Repositório: https://github.com/EmanuelFHX/Habit-Tracker
-👨‍💻 Autor
 
+
+👨‍💻 Autor
 Emanuel Penna
