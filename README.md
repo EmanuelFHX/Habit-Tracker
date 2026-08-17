@@ -6,7 +6,6 @@
 
 [![Acessar Projeto](https://img.shields.io/badge/🌐_Acessar_Projeto-Habit_Tracker-22C55E?style=for-the-badge)](https://habit-tracker-kappa-sooty.vercel.app/)
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repositório-181717?style=for-the-badge&logo=github)](https://github.com/EmanuelFHX/Habit-Tracker)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
